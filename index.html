@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>China Hotel Shortlist — L Visa Ready</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: rgba(255, 252, 247, 0.88);
+      --ink: #1d1b19;
+      --muted: #685f56;
+      --line: rgba(29, 27, 25, 0.12);
+      --accent: #b24a2b;
+      --accent-soft: rgba(178, 74, 43, 0.12);
+      --accent-2: #0f5f59;
+      --shadow: 0 24px 70px rgba(63, 41, 18, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(178, 74, 43, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(15, 95, 89, 0.12), transparent 28%),
+        linear-gradient(180deg, #f7f2eb 0%, #efe7dc 100%);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+
+    .hero {
+      padding: 40px;
+      border-radius: calc(var(--radius) + 8px);
+      background:
+        linear-gradient(135deg, rgba(255, 250, 243, 0.95), rgba(247, 239, 228, 0.85)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='rgba(178,74,43,0.08)' stroke-width='1'%3E%3Cpath d='M0 90h180M90 0v180'/%3E%3Ccircle cx='90' cy='90' r='48'/%3E%3Ccircle cx='90' cy='90' r='78'/%3E%3C/g%3E%3C/svg%3E");
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -50px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(178, 74, 43, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.1; }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero > p {
+      max-width: 62ch;
+      font-size: 1.08rem;
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .meta span {
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(29, 27, 25, 0.08);
+      border-radius: 999px;
+    }
+
+    .card {
+      background: var(--paper);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      color: var(--accent-2);
+    }
+
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hotel {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--line);
+    }
+
+    .hotel-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .label-overall   { background: rgba(15, 95, 89, 0.12);  color: #0f5f59; }
+    .label-value     { background: rgba(178, 74, 43, 0.11); color: #b24a2b; }
+    .label-visa      { background: rgba(90, 60, 140, 0.1);  color: #5a3c8c; }
+    .label-atour     { background: rgba(29, 27, 25, 0.07);  color: var(--muted); }
+
+    .hotel h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .hotel address {
+      font-style: normal;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(178, 74, 43, 0.07);
+      border-left: 3px solid var(--accent);
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .hotel-grid { grid-template-columns: 1fr; }
+      .hero, .card { padding: 24px; }
+      .page { width: min(100% - 20px, 1120px); margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <p class="eyebrow">Travel Reference</p>
+      <h1>China Hotel Shortlist</h1>
+      <p>Four cities. Four options each — ranked by purpose. Addresses verified against official hotel websites and suitable for L visa hotel confirmation.</p>
+      <div class="meta">
+        <span>Shanghai · Chongqing · Xi'an · Beijing</span>
+        <span>English only · International chains</span>
+        <span>Logged: April 13, 2026</span>
+      </div>
+    </header>
+
+    <!-- SHANGHAI -->
+    <section class="card">
+      <h2>Shanghai</h2>
+      <div class="hotel-grid">
+        <div class="hotel">
+          <span class="hotel-label label-overall">Best Overall</span>
+          <h3>Conrad Shanghai</h3>
+          <address>789 East Nanjing Road<br>Shanghai, 200001, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-value">Best Value</span>
+          <h3>InterContinental Shanghai Jing'An</h3>
+          <address>No. 500 Heng Feng Road<br>Jing'an District, Shanghai, 200070, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-visa">Best for Visa Address</span>
+          <h3>The Westin Bund Center, Shanghai</h3>
+          <address>Bund Center, 88 Henan Central Road<br>Shanghai, 200002, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-atour">Atour Alternative</span>
+          <h3>Atour Hotel, Nanjing Road Pedestrian Street</h3>
+          <address>No. 586 Ningbo Road<br>Huangpu District, Shanghai, 200001, China</address>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHONGQING -->
+    <section class="card">
+      <h2>Chongqing</h2>
+      <div class="hotel-grid">
+        <div class="hotel">
+          <span class="hotel-label label-overall">Best Overall</span>
+          <h3>Hyatt Regency Metropolitan Chongqing</h3>
+          <address>No. 68 Zou Rong Road<br>Yuzhong District, Chongqing, 400010, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-value">Best Value</span>
+          <h3>Marriott Executive Apartments Chongqing</h3>
+          <address>77 Qing Nian Road<br>Yuzhong District, Chongqing, 400010, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-visa">Best for Visa Address</span>
+          <h3>JW Marriott Hotel Chongqing</h3>
+          <address>235 Minsheng Road<br>Yuzhong District, Chongqing, 400010, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-atour">Atour Alternative</span>
+          <h3>Atour Hotel, Bayi Square, Jiefangbei</h3>
+          <address>No. 85 Jiaochangkou<br>Yuzhong District, Chongqing, 400010, China</address>
+        </div>
+      </div>
+    </section>
+
+    <!-- XI'AN -->
+    <section class="card">
+      <h2>Xi'an</h2>
+      <div class="hotel-grid">
+        <div class="hotel">
+          <span class="hotel-label label-overall">Best Overall</span>
+          <h3>Hilton Xi'an</h3>
+          <address>199 Dongxin Road<br>Xincheng District, Xi'an, 710005, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-value">Best Value</span>
+          <h3>Sofitel Xi'an on Renmin Square</h3>
+          <address>319 Dong Xin Street<br>Xi'an, Shaanxi, 710004, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-visa">Best for Visa Address</span>
+          <h3>The Westin Xi'an</h3>
+          <address>66 Ci En Road<br>Qu Jiang New District, Xi'an, Shaanxi, 710061, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-atour">Atour Alternative</span>
+          <h3>Atour Hotel Xi'an Bell Tower South Gate</h3>
+          <address>No. 331 Huancheng South Road East Section<br>Beilin District, Xi'an, Shaanxi, 710001, China</address>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEIJING -->
+    <section class="card">
+      <h2>Beijing</h2>
+      <div class="hotel-grid">
+        <div class="hotel">
+          <span class="hotel-label label-overall">Best Overall</span>
+          <h3>Hilton Beijing Wangfujing</h3>
+          <address>8 Wangfujing East Street<br>Dongcheng District, Beijing, 100006, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-value">Best Value</span>
+          <h3>Grand Hyatt Beijing</h3>
+          <address>1 East Chang An Avenue<br>Beijing, 100738, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-visa">Best for Visa Address</span>
+          <h3>Regent Beijing</h3>
+          <address>99 Jinbao Street<br>Dongcheng District, Beijing, 100005, China</address>
+        </div>
+        <div class="hotel">
+          <span class="hotel-label label-atour">Atour Alternative</span>
+          <h3>Atour Hotel Beijing Tiananmen Wangfujing</h3>
+          <address>No. 241 Wangfujing Street<br>Dongcheng District, Beijing, China</address>
+        </div>
+      </div>
+      <div class="note">
+        All addresses verified against official hotel websites. Suitable for use on L visa hotel confirmation forms.
+      </div>
+    </section>
+
+    <footer>Prepared April 13, 2026 · Addresses sourced from official brand websites.</footer>
+
+  </main>
+</body>
+</html>
