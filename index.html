@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>China Marriott Hotel List — L Visa Ready</title>
+  <title>China Trip Booking Plan</title>
   <style>
     :root {
       --bg: #f4efe7;
@@ -72,10 +72,11 @@
     h1 {
       font-size: clamp(2.4rem, 5vw, 4.5rem);
       letter-spacing: -0.04em;
+      max-width: 11ch;
     }
 
     .hero > p {
-      max-width: 62ch;
+      max-width: 65ch;
       font-size: 1.08rem;
       margin: 18px 0 0;
       color: var(--muted);
@@ -98,6 +99,13 @@
       border-radius: 999px;
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
     .card {
       background: var(--paper);
       backdrop-filter: blur(10px);
@@ -108,11 +116,42 @@
       margin-top: 24px;
     }
 
+    .card:first-of-type { margin-top: 24px; }
+
     .card h2 {
       font-size: 1.5rem;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       letter-spacing: -0.02em;
       color: var(--accent-2);
+    }
+
+    .route {
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .hotel-grid {
@@ -138,25 +177,62 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      background: rgba(15, 95, 89, 0.12);
+      color: #0f5f59;
     }
-
-    .label-overall   { background: rgba(15, 95, 89, 0.12);  color: #0f5f59; }
-    .label-value     { background: rgba(178, 74, 43, 0.11); color: #b24a2b; }
-    .label-visa      { background: rgba(90, 60, 140, 0.1);  color: #5a3c8c; }
-    .label-atour     { background: rgba(29, 27, 25, 0.07);  color: var(--muted); }
 
     .hotel h3 {
       font-size: 1.05rem;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
+    .hotel p,
     .hotel address {
+      margin: 0;
       font-style: normal;
       font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.5;
     }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    li + li { margin-top: 10px; }
 
     .note {
       margin-top: 16px;
@@ -169,6 +245,10 @@
       color: var(--muted);
     }
 
+    a {
+      color: var(--accent);
+    }
+
     footer {
       margin-top: 28px;
       padding: 18px 4px 0;
@@ -177,108 +257,212 @@
       text-align: center;
     }
 
+    @media (max-width: 900px) {
+      .grid,
+      .hotel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
-      .hotel-grid { grid-template-columns: 1fr; }
       .hero, .card { padding: 24px; }
       .page { width: min(100% - 20px, 1120px); margin-top: 10px; }
+      h1 { max-width: none; }
     }
   </style>
 </head>
 <body>
   <main class="page">
-
     <header class="hero">
-      <p class="eyebrow">Travel Reference</p>
-      <h1>China Marriott Hotel List</h1>
-      <p>Four cities. Marriott hotels only. Names and addresses only, verified against official Marriott pages and suitable for L visa hotel confirmation.</p>
+      <p class="eyebrow">Travel Brief</p>
+      <h1>China Trip Booking Plan</h1>
+      <p>Cleaned up for booking only: four hotel cities, exact date distribution, and the fastest way to move between each stop. Built around the flight screenshot showing arrival in Shanghai on Friday, May 15, 2026 at 7:50 p.m.</p>
       <div class="meta">
-        <span>Shanghai · Chongqing · Xi'an · Beijing</span>
-        <span>English only · Names and addresses only</span>
-        <span>Logged: April 13, 2026</span>
+        <span>May 15 to May 24, 2026</span>
+        <span>9 nights</span>
+        <span>Shanghai → Chongqing → Chengdu → Xi'an → Beijing out</span>
       </div>
     </header>
 
-    <!-- SHANGHAI -->
-    <section class="card">
-      <h2>Shanghai</h2>
-      <div class="hotel-grid">
-        <div class="hotel">
-          <h3>Shanghai Marriott Hotel Parkview</h3>
-          <address>333 Guang Zhong Road West<br>Jing'an District, Shanghai, China, 200072</address>
+    <div class="grid">
+      <section class="card">
+        <h2>Recommended Route</h2>
+        <p class="route">Shanghai 3 nights → Chongqing 1 night → Chengdu 2 nights → Xi'an 2 nights → Beijing 1 night</p>
+        <div class="pill-list">
+          <span class="pill">Best pace</span>
+          <span class="pill">Keeps Chongqing</span>
+          <span class="pill">Includes pandas</span>
+          <span class="pill">Terracotta Army</span>
         </div>
-        <div class="hotel">
+      </section>
+
+      <section class="card">
+        <h2>Bottom Line</h2>
+        <p class="mini">These four sightseeing cities are worth it if Beijing is only your exit city, not a full sightseeing stop. The part that is not worth forcing into this trip is extra Beijing touring. With only 9 nights after a long-haul arrival, Shanghai, Chongqing, Chengdu, and Xi'an are the stronger use of time.</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Book These Hotels</h2>
+      <div class="hotel-grid">
+        <article class="hotel">
+          <span class="hotel-label">May 15 to May 18 · 3 nights</span>
           <h3>Shanghai Marriott Marquis City Centre</h3>
+          <p>Best base for first-time sightseeing and easy Bund/Nanjing Road access.</p>
           <address>555 Middle Xizang Road (Close to Nanjing Road)<br>Huangpu District, Shanghai, China, 200003</address>
-        </div>
-        <div class="hotel">
-          <h3>JW Marriott Marquis Hotel Shanghai Pudong</h3>
-          <address>No 988 Puming Road, Pudong New Area<br>Shanghai, Shanghai, China, 200122</address>
-        </div>
-      </div>
-    </section>
-
-    <!-- CHONGQING -->
-    <section class="card">
-      <h2>Chongqing</h2>
-      <div class="hotel-grid">
-        <div class="hotel">
-          <h3>Marriott Executive Apartments Chongqing</h3>
-          <address>77 Qing Nian Road<br>Yuzhong District, Chongqing, China, 400010</address>
-        </div>
-        <div class="hotel">
+        </article>
+        <article class="hotel">
+          <span class="hotel-label">May 18 to May 19 · 1 night</span>
           <h3>JW Marriott Hotel Chongqing</h3>
+          <p>Good for Liziba, Hongya Cave, and Jiefangbei access.</p>
           <address>235 Minsheng Road<br>Chongqing, China, 400010</address>
-        </div>
-        <div class="hotel">
-          <h3>Chongqing Marriott Hotel</h3>
-          <address>No 9 Yan Yu Road, Nan An District<br>Chongqing, China, 400060</address>
-        </div>
-      </div>
-    </section>
-
-    <!-- XI'AN -->
-    <section class="card">
-      <h2>Xi'an</h2>
-      <div class="hotel-grid">
-        <div class="hotel">
+        </article>
+        <article class="hotel">
+          <span class="hotel-label">May 19 to May 21 · 2 nights</span>
+          <h3>JW Marriott Hotel Chengdu</h3>
+          <p>Strong base for the panda day and People's Park matchmaking corner.</p>
+          <address>No. 19 Dongyu Street, Jinjiang District<br>Chengdu, Sichuan, China, 610016</address>
+        </article>
+        <article class="hotel">
+          <span class="hotel-label">May 21 to May 23 · 2 nights</span>
           <h3>JW Marriott Hotel Xi'an</h3>
+          <p>Good final sightseeing base before moving to Beijing for departure.</p>
           <address>No. 168 Feng Cheng 8th Road<br>Xi'an, Shaanxi, China, 710018</address>
-        </div>
-        <div class="hotel">
-          <h3>Xi'an Marriott Hotel High-Tech Zone</h3>
-          <address>No. 50 Jinye Road, Yanta District<br>Xi'an, Shaanxi, China, 710065</address>
-        </div>
-        <div class="hotel">
-          <h3>W Xi'an</h3>
-          <address>333 Qujiang Chi East Road, Qujiang New District<br>Xi'an, China</address>
-        </div>
+        </article>
       </div>
+      <div class="note">If your flight home from Beijing is very early on May 24, add one simple airport or central Beijing hotel for the night of May 23. If the flight is afternoon or evening, you can take an early Xi'an → Beijing train on May 24 instead, but that is tighter and less comfortable.</div>
     </section>
 
-    <!-- BEIJING -->
     <section class="card">
-      <h2>Beijing</h2>
-      <div class="hotel-grid">
-        <div class="hotel">
-          <h3>JW Marriott Hotel Beijing</h3>
-          <address>83 Jian Guo Road, Chaoyang District<br>Beijing, Beijing, China, 100025</address>
-        </div>
-        <div class="hotel">
-          <h3>JW Marriott Hotel Beijing Central</h3>
-          <address>18 Xuanwumenwai Street<br>Xicheng District, Beijing, 100052, China</address>
-        </div>
-        <div class="hotel">
-          <h3>Beijing Marriott Hotel Northeast</h3>
-          <address>26A Xiao Yun Road, Chaoyang District<br>Beijing, China, 100125</address>
-        </div>
-      </div>
-      <div class="note">
-        All addresses are from official Marriott property pages. Suitable for use on L visa hotel confirmation forms.
+      <h2>Day-by-Day Plan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Sleep</th>
+              <th>Plan</th>
+              <th>Travel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Fri, May 15</strong></td>
+              <td>Shanghai</td>
+              <td>Arrive PVG at 7:50 p.m. from Delta. Light dinner only and sleep.</td>
+              <td>Airport transfer into Shanghai.</td>
+            </tr>
+            <tr>
+              <td><strong>Sat, May 16</strong></td>
+              <td>Shanghai</td>
+              <td>The Bund, Nanjing Road, easy first full day.</td>
+              <td>No intercity travel.</td>
+            </tr>
+            <tr>
+              <td><strong>Sun, May 17</strong></td>
+              <td>Shanghai</td>
+              <td>French Concession, Xintiandi, relaxed second city day.</td>
+              <td>No intercity travel.</td>
+            </tr>
+            <tr>
+              <td><strong>Mon, May 18</strong></td>
+              <td>Chongqing</td>
+              <td>Fly to Chongqing. Night view at Hongya Cave.</td>
+              <td>Best choice: direct flight from Shanghai, about 3h 10m from SHA or 3h 25m from PVG.</td>
+            </tr>
+            <tr>
+              <td><strong>Tue, May 19</strong></td>
+              <td>Chengdu</td>
+              <td>Morning at Liziba to see the train through the building, then move to Chengdu.</td>
+              <td>High-speed rail Chongqing East → Chengdu, fastest about 1h 2m.</td>
+            </tr>
+            <tr>
+              <td><strong>Wed, May 20</strong></td>
+              <td>Chengdu</td>
+              <td>Panda Base early morning, then People's Park matchmaking corner later in the day.</td>
+              <td>No intercity travel.</td>
+            </tr>
+            <tr>
+              <td><strong>Thu, May 21</strong></td>
+              <td>Xi'an</td>
+              <td>Move to Xi'an and keep the evening light around the city wall or Muslim Quarter.</td>
+              <td>High-speed rail Chengdu East → Xi'an North, fastest about 3h 10m.</td>
+            </tr>
+            <tr>
+              <td><strong>Fri, May 22</strong></td>
+              <td>Xi'an</td>
+              <td>Terracotta Army in the morning, city food walk at night.</td>
+              <td>No intercity travel.</td>
+            </tr>
+            <tr>
+              <td><strong>Sat, May 23</strong></td>
+              <td>Beijing</td>
+              <td>Move to Beijing for departure positioning. Keep this day flexible.</td>
+              <td>Best practical choice: Xi'an North → Beijing by high-speed rail, fastest about 4h 10m. Flight is about 2h 30m airborne if needed.</td>
+            </tr>
+            <tr>
+              <td><strong>Sun, May 24</strong></td>
+              <td>Depart</td>
+              <td>Fly home from Beijing.</td>
+              <td>Airport transfer only.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <footer>Prepared April 13, 2026 · Addresses sourced from official brand websites.</footer>
+    <section class="card">
+      <h2>Shanghai to Chongqing: Train vs Flight</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Approximate Time</th>
+              <th>Recommendation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>High-speed rail</strong></td>
+              <td>Fastest about 8h 59m; many direct services are 9 to 13+ hours depending on train.</td>
+              <td>Not recommended for this trip. It burns too much daylight.</td>
+            </tr>
+            <tr>
+              <td><strong>Direct flight</strong></td>
+              <td>About 3h 10m from Shanghai Hongqiao or about 3h 25m from Shanghai Pudong.</td>
+              <td>Recommended. Even with airport time, it still saves most of the day.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">For this itinerary, fly Shanghai → Chongqing, then use high-speed rail for Chongqing → Chengdu, Chengdu → Xi'an, and Xi'an → Beijing.</div>
+    </section>
 
+    <section class="card">
+      <h2>If You Want Less Rushing</h2>
+      <ul>
+        <li>Keep Shanghai, Chengdu, and Xi'an as the three real sightseeing bases.</li>
+        <li>Make Chongqing only a same-day stop if the Liziba train view is your main goal.</li>
+        <li>Do not add Beijing sightseeing unless you extend the trip by at least 2 more nights.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Sources</h2>
+      <ul>
+        <li><a href="https://www.trip.com/trains/china/route/shanghaihongqiao-to-chongqing/" target="_blank" rel="noreferrer">Trip.com: Shanghai Hongqiao → Chongqing train times</a></li>
+        <li><a href="https://www.flightsfrom.com/SHA-CKG" target="_blank" rel="noreferrer">FlightsFrom: Shanghai Hongqiao → Chongqing direct flight time</a></li>
+        <li><a href="https://www.flightsfrom.com/PVG-CKG" target="_blank" rel="noreferrer">FlightsFrom: Shanghai Pudong → Chongqing direct flight time</a></li>
+        <li><a href="https://us.trip.com/trains/china/route/chongqingdong-to-chengdu/" target="_blank" rel="noreferrer">Trip.com: Chongqing East → Chengdu rail times</a></li>
+        <li><a href="https://www.trip.com/trains/china/route/chengdudong-to-xianbei/" target="_blank" rel="noreferrer">Trip.com: Chengdu East → Xi'an North rail times</a></li>
+        <li><a href="https://us.trip.com/trains/china/route/xianbei-to-beijing/" target="_blank" rel="noreferrer">Trip.com: Xi'an North → Beijing rail times</a></li>
+        <li><a href="https://www.flightsfrom.com/XIY-PKX" target="_blank" rel="noreferrer">FlightsFrom: Xi'an → Beijing direct flight time</a></li>
+        <li><a href="https://www.marriott.com/en-us/hotels/ctumj-jw-marriott-hotel-chengdu/overview/" target="_blank" rel="noreferrer">Marriott: JW Marriott Hotel Chengdu</a></li>
+      </ul>
+    </section>
+
+    <footer>Prepared April 14, 2026 · Rebuilt around the actual flight screenshot date pattern and simplified for booking.</footer>
   </main>
 </body>
 </html>
